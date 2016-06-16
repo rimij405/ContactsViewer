@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactConnectionApplication", "ContactConnectionApplication\ContactConnectionApplication.csproj", "{E9D8A1BC-533F-4672-8905-293D1117428A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsViewer", "ContactConnectionApplication\ContactsViewer.csproj", "{E9D8A1BC-533F-4672-8905-293D1117428A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
