@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ContactsViewer.Services.Common
 {
-	public abstract class BaseDTO
+	public abstract class BaseDTO : IBaseDTO
 	{
 		#region Fields
 

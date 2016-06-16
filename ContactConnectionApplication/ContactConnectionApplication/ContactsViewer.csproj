@@ -213,8 +213,15 @@
     <Compile Include="Models\ModelDTOs\RecruiterDTO.cs" />
     <Compile Include="Models\Recruiter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Parsers\DTOParser.cs" />
+    <Compile Include="Repository\Parsers\DTOParserFactory.cs" />
+    <Compile Include="Repository\Parsers\DTOParser_Contact.cs" />
+    <Compile Include="Repository\Parsers\DTOParser_Recruiter.cs" />
+    <Compile Include="Repository\Persistence\DALBase.cs" />
+    <Compile Include="Repository\Persistence\RecruiterDB.cs" />
     <Compile Include="Services\Common\CommonBase.cs" />
     <Compile Include="Services\Common\BaseDTO.cs" />
+    <Compile Include="Services\Common\IBaseDTO.cs" />
     <Compile Include="Services\Common\NullType.cs" />
     <Compile Include="Services\Validation\FieldError.cs" />
     <Compile Include="Services\Validation\Validator.cs" />
