@@ -18,7 +18,7 @@ namespace CSVHelperTester
 
 		private const string NUGET_CMD = "Install-Package CSVHelper"; // Install this for future use in other projects via the Package Manager Console.
 
-		private static DataTable contactsviewerTestTable;
+		private static DataTable testTable;
 
 		[STAThreadAttribute]
 		public static void Main(string[] args)
@@ -27,10 +27,9 @@ namespace CSVHelperTester
 			// TestRecruiterFunctions();
 			// TestContactFunctions();
 			// TestContactsViewerUpload();
-			// TestJSONSerializationOfRecruiter();
-			// TestJSONSerializationOfContact();
 			// TestNewFileDialog();
 			TestCSVReaderWithFile();
+			TestJSONSerialization();
 			wait();
 		}
 
@@ -178,7 +177,7 @@ namespace CSVHelperTester
 
 					while (csv.Read())
 					{
-						string rowStr = "";
+						// string rowStr = "";
 						var row = dt.NewRow();
 						foreach (DataColumn col in dt.Columns)
 						{
@@ -186,26 +185,30 @@ namespace CSVHelperTester
 							{
 								case ContactsMap.COL_ID:
 									row[col.ColumnName] = contactId;
-									rowStr += "" + row[col.ColumnName] + "\t";
+									// rowStr += "" + row[col.ColumnName] + "\t";
 									break;
 								case ContactsMap.COL_RECRUITER_ID:
 									row[col.ColumnName] = recruiter.Id;
-									rowStr += "" + row[col.ColumnName] + "\t";
+									// rowStr += "" + row[col.ColumnName] + "\t";
 									break;
 								case ContactsMap.COL_RECRUITER:
 									row[col.ColumnName] = recruiter;
 									break;
 								default:
 									row[col.ColumnName] = csv.GetField(col.DataType, col.ColumnName);
-									rowStr += "" + row[col.ColumnName] + "\t";
+									// rowStr += "" + row[col.ColumnName] + "\t";
 									break;
 							}
 						}
-						waitByTime(rowStr, 0.1);
+						// waitByTime(rowStr, 0.1);
 						dt.Rows.Add(row);
 						++contactId;
+
+						if(contactId > 15) { break; }
 					}
 
+					wait("Completed table set up of file.");
+					testTable = dt;
 					isFileValid = true;
 				}
 			}
@@ -291,13 +294,25 @@ namespace CSVHelperTester
 			}
 		}
 
-		private static void TestJSONSerializationOfRecruiter()
+		private static void TestJSONSerialization()
 		{
-			//string jsonObject;
-			//Recruiter testJSON, testBuild;
-			//testJSON = new Recruiter(1, );
-			//testBuild = new Recruiter(2, );
+			wait("Processing the data table for the JSON");
 
+			DataTable dt = testTable;
+			DataSet ds = new DataSet("Contacts");
+			ds.Namespace = "ContactsViewer";
+
+			ds.Tables.Add(dt);
+			ds.AcceptChanges();
+
+			string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
+
+			foreach (string line in json.Split(new string[] { Environment.NewLine }, StringSplitOptions.None))
+			{
+				waitByTime(line, 0.01);
+			}
+
+			wait();
 		}
 
 		private static void TestContactFunctions()
