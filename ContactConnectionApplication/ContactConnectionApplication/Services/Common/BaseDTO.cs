@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,12 +20,14 @@ namespace ContactsViewer.Services.Common
 
 		#region Properties
 
+		[Key]
 		public int ID
 		{
 			get { return this.id; }
 			set { this.id = value; }
 		}
 
+		[Required]
 		public string FirstName
 		{
 			get { return this.firstName; }
@@ -37,12 +40,14 @@ namespace ContactsViewer.Services.Common
 			set { this.middleName = value; }
 		}
 
+		[Required]
 		public string LastName
 		{
 			get { return this.lastName; }
 			set { this.lastName = value; }
 		}
 
+		[Required]
 		public string EmailAddress
 		{
 			get { return this.emailAddress; }

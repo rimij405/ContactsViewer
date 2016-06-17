@@ -21,7 +21,9 @@ namespace ContactsViewer.Services.Common
 		public static readonly string[] CODES = { ID_LABEL, FIRST_NAME, MIDDLE_NAME, LAST_NAME, EMAIL_ADDRESS, ORGANIZATION, OCCUPATION };
 
 		public const string BLANK = "";
-
+		public const string STATUS_RECRUITER = "Recruiter";
+		public const string STATUS_INTERN = "Intern";
+		public const string STATUS_OTHER = "Other";
 
 		// Fields
 		private List<FieldError> errors;

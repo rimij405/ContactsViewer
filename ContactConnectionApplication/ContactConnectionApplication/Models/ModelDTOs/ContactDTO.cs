@@ -1,8 +1,10 @@
 ﻿using ContactsViewer.Services.Common;
+using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContactsViewer.Models.ModelDTOs
 {
@@ -31,11 +33,14 @@ namespace ContactsViewer.Models.ModelDTOs
 			set { this.jobTitle = value; }
 		}
 
+		// Foreign key for RecruiterDTO
 		public int RecruiterID
 		{
 			get { return this.recruiterId; }
 			set { this.recruiterId = value; }
 		}
+
+		[ForeignKey("RecruiterID")]
 		public RecruiterDTO Recruiter
 		{
 			get { return this.recruiter; }
