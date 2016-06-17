@@ -7,18 +7,19 @@ using System.Web;
 
 namespace ContactsViewer.Repository.Persistence
 {
-	public class RecruiterDB : DALBase
+	public class ContactDB : DALBase
 	{
 		#region Methods
 
-		public static RecruiterDTO GetRecruiterByID(int id)
+		public static ContactDTO GetRecruiterByID(int id)
 		{
 			SqlCommand command = GetDbSprocCommand("Recruiter_GetByID");
 			command.Parameters.Add(CreateParameter("@RecruiterID", id));
-			return GetSingleDTO<RecruiterDTO>(ref command);
+			return GetSingleDTO<ContactDTO>(ref command);
 		}
-
-
+		
 		#endregion
+
+
 	}
 }

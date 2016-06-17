@@ -228,6 +228,7 @@
     <Compile Include="Repository\Parsers\DTOParserFactory.cs" />
     <Compile Include="Repository\Parsers\DTOParser_Contact.cs" />
     <Compile Include="Repository\Parsers\DTOParser_Recruiter.cs" />
+    <Compile Include="Repository\Persistence\ContactDB.cs" />
     <Compile Include="Repository\Persistence\DALBase.cs" />
     <Compile Include="Repository\Persistence\RecruiterDB.cs" />
     <Compile Include="Services\Common\CommonBase.cs" />

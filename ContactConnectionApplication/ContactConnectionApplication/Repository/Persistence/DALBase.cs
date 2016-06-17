@@ -126,7 +126,7 @@ namespace ContactsViewer.Repository.Persistence
 		/// </summary>
 		/// <param name="sprocName">The command to be used</param>
 		/// <returns>Returns an SqlCommand object.</returns>
-		public SqlCommand GetDbSprocCommand(string sprocName)
+		public static SqlCommand GetDbSprocCommand(string sprocName)
 		{
 			SqlCommand command = new SqlCommand(sprocName);
 			command.Connection = GetDbConnection();
